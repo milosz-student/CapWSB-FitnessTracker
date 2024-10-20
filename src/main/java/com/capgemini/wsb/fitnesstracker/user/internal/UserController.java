@@ -25,6 +25,15 @@ class UserController {
                           .toList();
     }
 
+    @GetMapping("/simple")
+    public List<BasicUserDto> getAllBasicUsers() {
+        return userService.findAllUsers()
+                .stream()
+                .map(userMapper::toBasicDto)
+                .toList();
+    }
+
+
     @PostMapping
     public User addUser(@RequestBody UserDto userDto) throws InterruptedException {
 
