@@ -1,7 +1,7 @@
 # LABORATORIUM 02
 
 Zadania proszę realizować zgodnie z własnym tempem. Zadania mają pomóc w przygotowaniu do Egzaminu oraz zrozumieniu Frameworka Spring. Zadanie proszę przesłać na własne repozytorium.
-Termin upływa po 14 dniach od rozpoczęciu laboratorium.
+Termin upływa po 14 dniach od rozpoczęcia laboratorium.
 
 ## ZADANIE 1. Sieciowe API do operacji typu CRUD na klientach
 
@@ -22,8 +22,8 @@ Stworzone API powinno pozwalać na:
 - [X] wylistowanie podstawowych informacji o wszystkich użytkownikach zapisanych w systemie (tylko ID oraz nazwa
   użytkownika)
 - [X] pobranie szczegółów dotyczących wybranego użytkownika (dowolny parametr: ID/imię & nazwisko/datę urodzenia/ e-mail)
-- [ ] utworzenie nowego użytkownika
-- [ ] usunięcie użytkownika (konkretny, np. konkretny ID danego uzytkownika)
+- [X] utworzenie nowego użytkownika
+- [X] usunięcie użytkownika (konkretny, np. konkretny ID danego uzytkownika)
 - [ ] wyszukiwanie użytkowników po e-mailu, bez rozróżniania wielkości liter, wyszukujące po fragmencie nazwy (zwracane
   tylko ID oraz e-mail użytkowników)
 - [ ] wyszukiwanie użytkowników po wieku starszym niż zdefiniowany
@@ -42,4 +42,4 @@ Stworzone API powinno pozwalać na:
 - [ ] kod powinien być odpowiednio udokumentowany za pomocą JavaDoc
 - [ ] do kodu powinna zostać dołączona wyeksportowana kolekcja zapytań z programu Postman, pozwalająca przetestować
   stworzone API
-- [ ] rozwiązanie powinno wykorzystywać rekordy (Java 16+) do definicji obiektów transferu danych (DTO)
+- [ ] rozwiązanie powinno wykorzystywać rekordy (Java 16+) do definicji obiektów transferu danych (DTO) 
