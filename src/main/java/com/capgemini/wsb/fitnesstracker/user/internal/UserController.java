@@ -5,10 +5,14 @@ import com.capgemini.wsb.fitnesstracker.user.api.UserNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/v1/users")
@@ -54,4 +58,13 @@ class UserController {
         userService.deleteUser(userId);
     }
 
+    @GetMapping("/older/{date}")
+    public List<UserDto>getUsersOlderThan(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate date) {
+        List<User> users = userService.findUsersOlderThan(date);
+        List<UserDto> userDtos = new ArrayList<>();
+        for (User user : users) {
+            userDtos.add(userMapper.toDto(user));
+        }
+        return userDtos;
+    }
 }
