@@ -39,7 +39,6 @@ class UserServiceImpl implements UserService, UserProvider {
         }
     }
 
-
     @Override
     public Optional<User> getUser(final Long userId) {
         return userRepository.findById(userId);
@@ -60,4 +59,12 @@ class UserServiceImpl implements UserService, UserProvider {
         return userRepository.findByBirthdateLessThanEqual(date);
     }
 
+    @Override
+    public User updateUser(final User user) {
+        log.info("Updating User {}", user);
+        if (user.getId() == null) {
+            throw new IllegalArgumentException("User with given ID not found");
+        }
+        return userRepository.save(user);
+    }
 }

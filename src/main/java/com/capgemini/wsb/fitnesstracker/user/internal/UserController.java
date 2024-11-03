@@ -8,10 +8,13 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -45,7 +48,6 @@ class UserController {
                 .orElseThrow(() -> new UserNotFoundException(id));
     }
 
-
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public User addUser(@RequestBody UserDto userDto) throws InterruptedException {
@@ -58,6 +60,14 @@ class UserController {
         userService.deleteUser(userId);
     }
 
+    @GetMapping("/email")
+    public List<BasicEmailUserDto> getUserByEmail(@RequestParam String email) {
+        BasicEmailUserDto user = userService.getUserByEmail(email)
+                .map(userMapper::toBasicEmailDto)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        return Collections.singletonList(user);
+    }
+
     @GetMapping("/older/{date}")
     public List<UserDto>getUsersOlderThan(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate date) {
         List<User> users = userService.findUsersOlderThan(date);
@@ -66,5 +76,11 @@ class UserController {
             userDtos.add(userMapper.toDto(user));
         }
         return userDtos;
+    }
+
+    @PutMapping("/{userId}")
+    public User updateUser(@PathVariable Long userId, @RequestBody UserDto userDto) {
+        User user = userService.getUser(userId).orElseThrow(() -> new UserNotFoundException(userId));
+        return userService.updateUser(userMapper.toUpdateEntity(user, userDto));
     }
 }

@@ -12,3 +12,6 @@ record UserDto(@Nullable Long Id, String firstName, String lastName,
 
 record BasicUserDto(@Nullable Long Id, String firstName, String lastName) {
 }
+
+record BasicEmailUserDto(@Nullable Long id, String email) {
+}
