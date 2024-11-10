@@ -2,7 +2,7 @@
 
 ## Kontynuacja LABORATORIUM 01 oraz stworzenie aspekt logującego wywołania metod serwisów
 Termin upływa po 7 dniach od rozpoczęciu laboratorium.
-## ZADANIE 1. Sieciowe API do operacji typu CRUD na Training (bez użycia rekordów)
+## ZADANIE 1. Sieciowe API do operacji typu CRUD na Training (bez użycia rekordów) (OCENA: 4.0)
 
 ### Potrzeba biznesowa
 
@@ -37,7 +37,7 @@ Stworzone API powinno pozwalać na:
   stworzone API
 - [ ] rozwiązanie powinno wykorzystywać zwykłe klasy Javowe do definicji obiektów transferu danych (DTO)
 
-## ZADANIE 2 (opcjonalne). Sieciowe API do operacji typu CRUD na Statistics (bez użycia rekordów)
+## ZADANIE 2 (opcjonalne). Sieciowe API do operacji typu CRUD na Statistics (bez użycia rekordów) (OCENA: 5.0)
 
 ### Potrzeba biznesowa
 
