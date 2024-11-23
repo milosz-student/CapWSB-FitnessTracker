@@ -1,6 +1,7 @@
 package com.capgemini.wsb.fitnesstracker.training.internal;
 
 
+import com.capgemini.wsb.fitnesstracker.training.api.TrainingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,7 +11,7 @@ import java.util.List;
 @RequestMapping("/v1/trainings")
 @RequiredArgsConstructor
 class TrainingController {
-    private final TrainingServiceImpl trainingService;
+    private final TrainingService trainingService;
 
     private final TrainingMapper trainingMapper;
 

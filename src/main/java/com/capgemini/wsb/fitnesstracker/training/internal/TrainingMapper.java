@@ -9,7 +9,7 @@ class TrainingMapper {
     TrainingDto toDto(Training training) {
         return new TrainingDto(
                 training.getId(),
-                new TrainingDto.TrainingUser(
+                new TrainingUser(
                         training.getUser().getId(),
                         training.getUser().getFirstName(),
                         training.getUser().getLastName(),
