@@ -9,20 +9,22 @@ import java.util.Date;
 @Getter
 class TrainingDto {
     @Nullable
-    Long id;
-    TrainingUser user;
+    private Long id;
+    private TrainingUser user;
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS+00:00")
-    Date startTime;
+    private Date startTime;
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS+00:00")
-    Date endTime;
-    double distance;
-    double averageSpeed;
+    private Date endTime;
+    private ActivityType activityType;
+    private double distance;
+    private double averageSpeed;
 
-    public TrainingDto(Long id, TrainingUser trainingUser, Date startTime, Date endTime, double distance, double averageSpeed) {
+    public TrainingDto(Long id, TrainingUser trainingUser, Date startTime, Date endTime, ActivityType activityType, double distance, double averageSpeed) {
         this.id = id;
         this.user = trainingUser;
         this.startTime = startTime;
         this.endTime = endTime;
+        this.activityType = activityType;
         this.distance = distance;
         this.averageSpeed = averageSpeed;
     }

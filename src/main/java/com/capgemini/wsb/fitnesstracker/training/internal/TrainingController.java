@@ -38,4 +38,12 @@ class TrainingController {
                 .map(trainingMapper::toDto)
                 .toList();
     }
+
+    @GetMapping("/activityType")
+    public List<TrainingDto> getTrainingsByActivityType (@RequestParam ActivityType activityType) {
+        return trainingService.findTrainingsByActivityType(activityType)
+                .stream()
+                .map(trainingMapper::toDto)
+                .toList();
+    }
 }

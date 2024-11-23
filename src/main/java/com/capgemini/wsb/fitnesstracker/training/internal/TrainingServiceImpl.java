@@ -40,4 +40,9 @@ public class TrainingServiceImpl implements TrainingProvider, TrainingService {
         return trainingRepository.findAll().stream().filter(t -> t.getEndTime().after(date)).toList();
     }
 
+    @Override
+    public List<Training> findTrainingsByActivityType(ActivityType activityType) {
+        return trainingRepository.findAll().stream().filter(t -> t.getActivityType().equals(activityType)).toList();
+    }
+
 }

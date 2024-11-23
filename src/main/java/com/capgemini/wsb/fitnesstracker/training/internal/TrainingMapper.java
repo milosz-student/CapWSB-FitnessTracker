@@ -17,6 +17,7 @@ class TrainingMapper {
                 ),
                 training.getStartTime(),
                 training.getEndTime(),
+                training.getActivityType(),
                 training.getDistance(),
                 training.getAverageSpeed()
         );
