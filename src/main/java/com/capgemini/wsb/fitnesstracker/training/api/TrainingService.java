@@ -4,5 +4,9 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface TrainingService {
+
     List<Training> findAllTrainings();
+
+    List<Training> findTrainingsByUserId(Long userId);
+
 }
