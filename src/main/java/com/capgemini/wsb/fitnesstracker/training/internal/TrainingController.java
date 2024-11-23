@@ -1,11 +1,10 @@
 package com.capgemini.wsb.fitnesstracker.training.internal;
 
-
 import com.capgemini.wsb.fitnesstracker.training.api.TrainingService;
-import com.capgemini.wsb.fitnesstracker.user.api.UserNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
-
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -25,7 +24,18 @@ class TrainingController {
     }
 
     @GetMapping("/{userId}")
-    public Object getTrainingsByUserId(@PathVariable Long userId) {
-        return trainingService.findTrainingsByUserId(userId);
+    public List<TrainingDto> getTrainingsByUserId(@PathVariable Long userId) {
+        return trainingService.findTrainingsByUserId(userId)
+                .stream()
+                .map(trainingMapper::toDto)
+                .toList();
+    }
+
+    @GetMapping("/finished/{afterTime}")
+    public List<TrainingDto> getTrainingsAfterTime (@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date afterTime) {
+        return trainingService.findTrainingsAfterTime(afterTime)
+                .stream()
+                .map(trainingMapper::toDto)
+                .toList();
     }
 }
